@@ -74,15 +74,26 @@ html {
 }
 
 .btn-about {
-    background-color: #81DBC2;
+    background-color: #696b6a;
     color: #fff;
     font-size: 16px;
     font-weight: 500;
 }
 
 .btn-about:hover {
-    color: #81DBC2;
-    background-color: #fff;
+    color: #696b6a;;
+    background-color: #fafafa;
+}
+.btn-sertifikat {
+    background-color: #696b6a;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.btn-sertifikat:hover {
+    color: #696b6a;
+    background-color: #fafafa;
 }
 
 .skill {
