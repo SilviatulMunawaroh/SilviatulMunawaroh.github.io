@@ -119,31 +119,6 @@ html {
     color: #81DBC2;
 }
 
-
-
-.box_main {
-    width: 21rem;
-    background: #010101;
-    padding: 1rem 1.5rem 0.6rem 1.5rem;
-    border-radius: 2rem;
-    text-align: center;
-    border: .2rem solid var(#696b6a);
-    transition: .5s ease;
-    box-shadow: 0 0 10px 5px rgb(0, 204, 255);
-    margin-right: 0%;
-}
-
-.box_main:hover {
-    border-color: rgb(36, 43, 255);
-    transform: scale(1.02);
-    box-shadow: 0 0 15px 10px rgba(0, 204, 255);
-}
-
-.box_main p {
-    margin-top: 1rem;
-}
-
-
 .py-5 {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -282,8 +257,9 @@ html {
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   
-  .card svg {
-    width: 48px;
+  .img-fluid {
+    width: 100;
+    height: 100%;
     fill: #333;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
@@ -327,5 +303,88 @@ html {
     font-size: 14px;
     color: #777;
     line-height: 1.4;
+  }
+  
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    box-shadow: 0px 0px 15px #00000027;
+    padding: 15px 10px;
+    border-radius: 5em;
+  }
+  
+  .social-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 4px #00000027;
+    transition: 0.3s;
+  }
+  
+  .social-button:hover {
+    background-color: #f2f2f2;
+    box-shadow: 0px 0px 6px 3px #00000027;
+  }
+  
+  .social-buttons svg {
+    transition: 0.3s;
+    height: 20px;
+  }
+  
+  .facebook {
+    background-color: #3b5998;
+  }
+  
+  .facebook svg {
+    fill: #f2f2f2;
+  }
+  
+  .facebook:hover svg {
+    fill: #3b5998;
+  }
+  
+  .github {
+    background-color: #333;
+  }
+  
+  .github svg {
+    width: 25px;
+    height: 25px;
+    fill: #f2f2f2;
+  }
+  
+  .github:hover svg {
+    fill: #333;
+  }
+  
+  .linkedin {
+    background-color: #0077b5;
+  }
+  
+  .linkedin svg {
+    fill: #f2f2f2;
+  }
+  
+  .linkedin:hover svg {
+    fill: #0077b5;
+  }
+  
+  .instagram {
+    background-color: #c13584;
+  }
+  
+  .instagram svg {
+    fill: #f2f2f2;
+  }
+  
+  .instagram:hover svg {
+    fill: #c13584;
   }
   
