@@ -16,8 +16,7 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#home"
-          ><img src="asset/logo.png" alt="" class="logo"
+        <a class="navbar-brand" href="#home"><img src="asset/logo.png" alt="" class="logo"
         /></a>
         <button
           aria-controls="navbarSupportedContent1"
@@ -52,7 +51,7 @@
       </div>
     </nav>
 
-    <section class="text-center py-5 mb-3" id="home">
+    <section class="text-center py-5 mb-3" id="home" data-bg="asset/img/wp.jfif">
       <div class="container pb-5 pt-5">
         <div class="pb-5 pt-5 row">
           <div class="home-hero col-lg-9 col-xl-8 ms-auto me-auto pb-5 pt-5">
@@ -80,8 +79,8 @@
         <div class="row align-items-center gx-4">
           <div class="col-md-5 mb-3">
             <div class="ms-md-2 ms-lg-5">
-              <img class="img-fluid rounded-3" src="asset/img/silvi.jpg" />
-            </div>
+              <img class="img-fluid rounded-3" src="asset/img/silvi.jpg" loading="lazy" />
+            </div>            
           </div>
           <div class="col-md-6 offset-md-1">
             <div class="ms-md-2 ms-lg-5">
@@ -154,7 +153,7 @@
         <div class="row gy-4 justify-content-center align-items-center d-flex">
           <div class="col-md-6 col-xl-4">
             <div class="card">
-              <img alt="" class="img-fluid rounded" src="asset/project/undangan.jpg"/>
+              <img alt="" class="img-fluid rounded" src="asset/project/undangan.jpg" loading="lazy"/>
               <div class="card__content">
                 <a href="https://silviatulmunawaroh.github.io/undangan_online/" target="_blank"><p class="card__title" >Web Undangan Online</p></a>
                 <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
@@ -163,7 +162,7 @@
           </div>
           <div class="col-md-6 col-xl-4">
             <div class="card">
-              <img alt="" class="img-fluid rounded" src="asset/project/jeruk.jpg"/>
+              <img alt="" class="img-fluid rounded" src="asset/project/jeruk.jpg" loading="lazy"/>
               <div class="card__content">
                 <a href="https://silviatulmunawaroh.github.io/toko-jeruk/" target="_blank"><p class="card__title">Web Toko Jeruk</p></a>
                 <p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
@@ -272,13 +271,15 @@
               src="asset/sertifikat/1.jpg"
               alt="Certificate 1"
               class="img-fluid"
-            />
+              loading="lazy"
+             />
           </div>
           <div class="col-md-6 col-xl-4">
             <img
               src="asset/sertifikat/2.jpg"
               alt="Certificate 2"
               class="img-fluid"
+              loading="lazy"
             />
           </div>
           <div class="col-md-6 col-xl-4">
@@ -286,6 +287,7 @@
               src="asset/sertifikat/3.jpg"
               alt="Certificate 3"
               class="img-fluid"
+              loading="lazy"
             />
           </div>
           <div class="col-12 text-center mt-4">
@@ -321,5 +323,28 @@
       }
       document.getElementById('year').innerHTML = getCurrentYear();
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const lazyLoadBg = () => {
+            const homeElement = document.getElementById('home');
+            const rect = homeElement.getBoundingClientRect();
+            
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const bgImage = homeElement.getAttribute('data-bg');
+                homeElement.style.setProperty('--bg-image', `url(${bgImage})`);
+                homeElement.classList.add('lazy-loaded');
+            }
+        };
+    
+        // Event listeners
+        document.addEventListener("scroll", lazyLoadBg);
+        window.addEventListener("resize", lazyLoadBg);
+        window.addEventListener("orientationchange", lazyLoadBg);
+        
+        // Initial check
+        lazyLoadBg();
+    });
+    </script>
+    
   </body>
 </html>
