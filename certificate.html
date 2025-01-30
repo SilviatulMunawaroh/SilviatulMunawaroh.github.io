@@ -25,10 +25,8 @@
       align-items: flex-start;
       flex-direction: column;
       padding: 20px;
-      height: auto;
       min-height: 100vh;
       overflow-y: auto;
-      margin: 0;
       margin-bottom: 20px;
     }
 
@@ -37,13 +35,11 @@
       margin-bottom: 20px;
       width: 100%;
       position: relative;
-      /* Menambahkan posisi relatif untuk ikon */
     }
 
     h1 {
       font-size: 3rem;
       color: #f5f5f5;
-      /* Mengubah warna teks menjadi terang */
       margin-bottom: 40px;
       text-transform: uppercase;
       font-weight: 600;
@@ -54,7 +50,6 @@
       position: absolute;
       top: 20px;
       right: 20px;
-      /* Memindahkan ikon ke pojok kanan atas */
       font-size: 24px;
       background: none;
       border: none;
@@ -70,16 +65,12 @@
     .certificate-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      /* Menampilkan 3 kolom di setiap baris */
       gap: 20px;
       max-width: 1200px;
       width: 100%;
       margin: 0 auto;
-      /* Menambahkan auto margin untuk memastikan kontainer di tengah */
       justify-items: center;
-      /* Menambahkan agar kartu berada di tengah */
       padding: 0 10px;
-      /* Menambahkan padding kiri dan kanan untuk jarak yang lebih seimbang */
     }
 
     .certificate-card {
@@ -139,14 +130,15 @@
       text-transform: uppercase;
     }
 
-    .container {
-      z-index: 1;
+    @media (max-width: 1024px) {
+      .certificate-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
       .certificate-container {
         grid-template-columns: repeat(2, 1fr);
-        /* 2 kolom untuk layar kecil */
       }
     }
 
@@ -157,7 +149,6 @@
 
       .certificate-container {
         grid-template-columns: 1fr;
-        /* 1 kolom untuk layar sangat kecil */
       }
     }
   </style>
@@ -197,7 +188,7 @@
       <img src="asset/sertifikat/4.jpg" alt="Certificate 4">
       <div class="details">
         <h3>Mini Bootcamp</h3>
-        <p>Introduction to Exel "Jumstart Your Data Analysis Journey With Microsoft Exel"</p>
+        <p>Introduction to Excel "Jumstart Your Data Analysis Journey With Microsoft Excel"</p>
         <span class="badge">Completed</span>
       </div>
     </div>
@@ -213,7 +204,7 @@
       <img src="asset/sertifikat/6.jpg" alt="Certificate 6">
       <div class="details">
         <h3>Mini Bootcamp</h3>
-        <p>Introduction to Flutter "A Step-By-Step Guide to Mobile development"</p>
+        <p>Introduction to Flutter "A Step-By-Step Guide to Mobile Development"</p>
         <span class="badge">Completed</span>
       </div>
     </div>
@@ -221,7 +212,7 @@
       <img src="asset/sertifikat/7.jpg" alt="Certificate 7">
       <div class="details">
         <h3>Mini Bootcamp</h3>
-        <p>Introduction to ChatGPT for Didital Marketing "Unlocking The Power of ChatGPT in Digital Marketing"</p>
+        <p>Introduction to ChatGPT for Digital Marketing "Unlocking The Power of ChatGPT in Digital Marketing"</p>
         <span class="badge">Completed</span>
       </div>
     </div>
@@ -244,8 +235,8 @@
     <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="200">
       <img src="asset/sertifikat/10.jpg" alt="Certificate 10">
       <div class="details">
-        <h3>DevCoach 147</h3>
-        <p>Front-End | Melangkah Lebih Jauh Dengan Lit</p>
+        <h3>Dicoding Event</h3>
+        <p>DevCoach 147: Front-End | Melangkah Lebih Jauh Dengan Lit</p>
         <span class="badge">Completed</span>
       </div>
     </div>
@@ -253,7 +244,7 @@
       <img src="asset/sertifikat/11.jpg" alt="Certificate 11">
       <div class="details">
         <h3>Mini Bootcamp</h3>
-        <p>Kuasai Microsoft Exel: "Rahasia Olah Data Lebih Mudah"</p>
+        <p>Kuasai Microsoft Excel: "Rahasia Olah Data Lebih Mudah"</p>
         <span class="badge">Completed</span>
       </div>
     </div>
@@ -284,8 +275,8 @@
     <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="400">
       <img src="asset/sertifikat/15.jpg" alt="Certificate 15">
       <div class="details">
-        <h3>Lailatul Coding</h3>
-        <p>Membuat Aplikasi Peminjaman Sederhana</p>
+        <h3>Dicoding Event</h3>
+        <p>Lailatul Coding: Membuat Aplikasi Peminjaman Sederhana</p>
         <span class="badge">Completed</span>
       </div>
     </div>
@@ -333,7 +324,7 @@
       <img src="asset/sertifikat/21.jpg" alt="Certificate 21">
       <div class="details">
         <h3>Mini Bootcamp</h3>
-        <p>belajar Dasar Back-End Engineering dengan Java Script On</p>
+        <p>Belajar Dasar Back-End Engineering dengan Java Script On</p>
         <span class="badge">Completed</span>
       </div>
     </div>
@@ -357,7 +348,7 @@
       <img src="asset/sertifikat/24.jpg" alt="Certificate 24">
       <div class="details">
         <h3>Dicoding Event</h3>
-        <p>starting the basics of a Cloud Engineer</p>
+        <p>Starting the basics of a Cloud Engineer</p>
         <span class="badge">Completed</span>
       </div>
     </div>
@@ -411,19 +402,17 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <script src="script.js"></script>
   <script>
-    function getCurrentYear() {
-      return new Date().getFullYear();
-    }
-    document.getElementById('year').innerHTML = getCurrentYear();
+    document.addEventListener("DOMContentLoaded", function() {
+      const images = document.querySelectorAll(".certificate-card img");
+  
+      images.forEach(img => {
+        img.onload = () => img.classList.add("loaded");
+        img.src = img.getAttribute("src"); // Memastikan gambar terload dengan efek
+      });
+    });
   </script>
-
-  <!-- AOS JS -->
+  
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
