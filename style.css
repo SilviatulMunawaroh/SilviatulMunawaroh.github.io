@@ -6,14 +6,21 @@ body {
 }
 
 .navbar {
-    background: rgba(255, 255, 255, 0.1);
+    background: #151515;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(6.4px);
     -webkit-backdrop-filter: blur(6.4px);
 }
 
+.navbar-nav .nav-link:hover {
+  color: rgb(255, 204, 0) !important;
+}
+
+
+
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -26,12 +33,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #fff;
+    background: #ACD5EB;
     border-radius: 30px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #aba8a8;
+    background: #A6C0F1;
 }
 
 #home {
@@ -137,45 +144,15 @@ html {
     margin: 0 auto;
 }
 
-/* .img-fluid {
-    max-width: 100%;
-    height: auto;
-    cursor: pointer;
-} */
-
-.btn-certificate {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #010101;
-    color: #00CCFF;
-    text-decoration: none;
-    border: 1px solid #00CCFF;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 0 15px 1px rgba(0, 204, 255);
-}
-
-.btn-certificate:hover {
-    color: #010101;
-    background-color: #00CCFF;
-}
-
-.btn-certificate::before {
-    background: #010101;
-}
-
 .button-cv {
     padding: 15px 25px;
     border: unset;
     border-radius: 15px;
     color: #212121;
     z-index: 1;
-    background: #e8e8e8;
+    background: #ffffff;
     position: relative;
-    font-weight: 1000;
+    font-weight: 600;
     font-size: 17px;
     -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
     box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
@@ -209,7 +186,7 @@ html {
    .boton-elegante {
     padding: 15px 30px;
     border: 2px solid #2c2c2c;
-    background-color: #1a1a1a;
+    background-color: #A6AEEF;
     color: #ffffff;
     font-size: 1.2rem;
     cursor: pointer;
@@ -242,15 +219,20 @@ html {
   }
   
   .boton-elegante:hover {
-    border-color: #666666;
-    background: #292929;
+    border-color: #A6C0F1;
+    background: #FAFAFA;
+    color: #A6C0F1;
+  }
+
+  .text-orange {
+    color: #f7d23f; /* Orange color */
   }
 
   .card {
     position: relative;
     width: 100%;
     height: 200px;
-    background-color: #f2f2f2;
+    background-color: #A6AEEF;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -268,7 +250,7 @@ html {
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   
-  .card:hover {
+  /* .card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
   }
@@ -295,7 +277,7 @@ html {
     margin: 0;
     font-size: 24px;
     color: #333;
-    font-weight: 700;
+    font-weight: 500;
   }
   
   .card:hover svg {
@@ -307,13 +289,13 @@ html {
     font-size: 14px;
     color: #777;
     line-height: 1.4;
-  }
+  } */
   
   .social-buttons {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f2f2f2;
+    /* background-color: #ACD5EB; */
     box-shadow: 0px 0px 15px #00000027;
     padding: 15px 10px;
     border-radius: 5em;
@@ -391,4 +373,137 @@ html {
   .instagram:hover svg {
     fill: #c13584;
   }
+
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
   
+  /* Styling untuk lingkaran */
+  .circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 10px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1); /* transparan di dalam lingkaran */
+    margin: 0 auto; /* Agar lingkaran berada di tengah */
+    margin-bottom: 15px;
+  }
+  
+  /* Menampilkan persentase di tengah lingkaran */
+  .circle:before {
+    content: attr(data-percentage) '%';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: white;
+  }
+  
+  /* Warna border berdasarkan skill */
+  .circle.html {
+    border-color: red;
+  }
+  
+  .circle.css {
+    border-color: blue;
+  }
+  
+  .circle.javascript {
+    border-color: yellow;
+  }
+  
+  .circle.node {
+    border-color: green;
+  }
+  
+  .circle.react {
+    border-color: cyan;
+  }
+  
+  /* Menambah jarak dan tata letak yang lebih rapi untuk semua screen size */
+  .col-lg-4, .col-md-6, .col-sm-12 {
+    text-align: center;
+  }
+  
+  p {
+    font-size: 14px;
+  }
+  
+  /* Responsive tweaks untuk margin */
+  @media (max-width: 768px) {
+    .circle {
+      width: 100px;
+      height: 100px;
+      border-width: 8px;
+    }
+  }
+ 
+   /* Hover effect for certificate cards */
+   .certificate-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  .certificate-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Overlay styling */
+  .position-absolute {
+    z-index: -1; /* Overlay di bawah gambar */
+  }
+  
+  /* Container and Layout */
+  .modern-card {
+    background: #fff;
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .modern-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  .modern-card__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .modern-card__content {
+    padding: 1rem;
+  }
+
+  .modern-card__title {
+    font-size: 1.25rem;
+    /* font-weight: bold; */
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .modern-card__title:hover {
+    color: #007bff;
+  }
+
+  .modern-card__link {
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .modern-card {
+      margin-bottom: 1rem;
+    }
+  }

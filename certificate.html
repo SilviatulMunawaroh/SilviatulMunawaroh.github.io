@@ -1,128 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Certificate</title>
+  <title>Certificate Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
-* {
-  box-sizing: border-box;
-  color: #fff;
-  background-color: #010101;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-h2 {
-  text-align: center;
-  font-size: 50px;
-}
+    body {
+      background: #010101;
+      color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 20px;
+      height: auto;
+      min-height: 100vh;
+      overflow-y: auto;
+      margin: 0;
+      margin-bottom: 20px;
+    }
 
-img {
-  width: 150px; /* Atur lebar gambar menjadi 200 piksel */
-  height: auto;
-}
+    .header-container {
+      text-align: center;
+      margin-bottom: 20px;
+      width: 100%;
+      position: relative;
+      /* Menambahkan posisi relatif untuk ikon */
+    }
 
+    h1 {
+      font-size: 3rem;
+      color: #f5f5f5;
+      /* Mengubah warna teks menjadi terang */
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
 
-.row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-}
+    .back-home {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      /* Memindahkan ikon ke pojok kanan atas */
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
 
-.column img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
+    .back-home:hover {
+      color: #6C63FF;
+    }
 
-.element {
-  margin-right: 50px;
-  margin-left: 50px;
-}
+    .certificate-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* Menampilkan 3 kolom di setiap baris */
+      gap: 20px;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      /* Menambahkan auto margin untuk memastikan kontainer di tengah */
+      justify-items: center;
+      /* Menambahkan agar kartu berada di tengah */
+      padding: 0 10px;
+      /* Menambahkan padding kiri dan kanan untuk jarak yang lebih seimbang */
+    }
 
+    .certificate-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      max-width: 350px;
+      width: 100%;
+    }
 
+    .certificate-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .certificate-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      border-bottom: 4px solid #ddd;
+    }
+
+    .certificate-card img:hover {
+      transform: scale(1.05);
+    }
+
+    .certificate-card .details {
+      padding: 20px;
+    }
+
+    .certificate-card .details h3 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .certificate-card .details p {
+      font-size: 1rem;
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .certificate-card .details .badge {
+      display: inline-block;
+      background: #6C63FF;
+      color: white;
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .container {
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .certificate-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 kolom untuk layar kecil */
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .certificate-container {
+        grid-template-columns: 1fr;
+        /* 1 kolom untuk layar sangat kecil */
+      }
+    }
   </style>
-
 </head>
 
 <body>
-  <h2><u>My Certificate</u></h2>
-
-  <div class="row">
-    <div class="column">
-      <img src="asset/sertifikat/1.jpg" alt="" width="100%">
+  <div class="header-container">
+    <h1>My Certificates</h1>
+    <a href="index.html" class="back-home"><i class="fas fa-home"></i></a>
+  </div>
+  <div class="certificate-container">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="200">
+      <img src="asset/sertifikat/1.jpg" alt="Certificate 1">
+      <div class="details">
+        <h3>Webinar</h3>
+        <p>Jejak Langkah Programmer Pemula</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/2.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="300">
+      <img src="asset/sertifikat/2.jpg" alt="Certificate 2">
+      <div class="details">
+        <h3>Seminar</h3>
+        <p>Pengembangan Skill Untuk peluang dan Tantangan Berkarir Dunia Digital</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/3.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="400">
+      <img src="asset/sertifikat/3.jpg" alt="Certificate 3">
+      <div class="details">
+        <h3>Webinar</h3>
+        <p>Career in Cybersecurity</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/4.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="200">
+      <img src="asset/sertifikat/4.jpg" alt="Certificate 4">
+      <div class="details">
+        <h3>Mini Bootcamp</h3>
+        <p>Introduction to Exel "Jumstart Your Data Analysis Journey With Microsoft Exel"</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/5.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="300">
+      <img src="asset/sertifikat/5.jpg" alt="Certificate 5">
+      <div class="details">
+        <h3>Mini Bootcamp</h3>
+        <p>Introduction to Web Development Roadmap to A Thriving Career in Web Development</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/6.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="400">
+      <img src="asset/sertifikat/6.jpg" alt="Certificate 6">
+      <div class="details">
+        <h3>Mini Bootcamp</h3>
+        <p>Introduction to Flutter "A Step-By-Step Guide to Mobile development"</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/7.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="200">
+      <img src="asset/sertifikat/7.jpg" alt="Certificate 7">
+      <div class="details">
+        <h3>Mini Bootcamp</h3>
+        <p>Introduction to ChatGPT for Didital Marketing "Unlocking The Power of ChatGPT in Digital Marketing"</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/8.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="300">
+      <img src="asset/sertifikat/8.jpg" alt="Certificate 8">
+      <div class="details">
+        <h3>Workshop</h3>
+        <p>Pengenalan React.js: Membangun Aplikasi Web Interaktif</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/9.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="400">
+      <img src="asset/sertifikat/9.jpg" alt="Certificate 9">
+      <div class="details">
+        <h3>Dibimbing ID</h3>
+        <p>DSF26-FrontEnd Developer</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/10.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="200">
+      <img src="asset/sertifikat/10.jpg" alt="Certificate 10">
+      <div class="details">
+        <h3>DevCoach 147</h3>
+        <p>Front-End | Melangkah Lebih Jauh Dengan Lit</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/11.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="300">
+      <img src="asset/sertifikat/11.jpg" alt="Certificate 11">
+      <div class="details">
+        <h3>Mini Bootcamp</h3>
+        <p>Kuasai Microsoft Exel: "Rahasia Olah Data Lebih Mudah"</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/12.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="400">
+      <img src="asset/sertifikat/12.jpg" alt="Certificate 12">
+      <div class="details">
+        <h3>Mini Bootcamp</h3>
+        <p>Frontend Web Batch 2</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/13.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="200">
+      <img src="asset/sertifikat/13.jpg" alt="Certificate 13">
+      <div class="details">
+        <h3>Mini Bootcamp</h3>
+        <p>Bedah Website: Panduan Belajar Web Development dari Nol</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/14.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="300">
+      <img src="asset/sertifikat/14.jpg" alt="Certificate 14">
+      <div class="details">
+        <h3>Mini Bootcamp</h3>
+        <p>Talent Acquisition: "Bocoran Strategi Temukan Kandidat Talent Acquisition"</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/15.png" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="400">
+      <img src="asset/sertifikat/15.jpg" alt="Certificate 15">
+      <div class="details">
+        <h3>Lailatul Coding</h3>
+        <p>Membuat Aplikasi Peminjaman Sederhana</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/16.png" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="200">
+      <img src="asset/sertifikat/16.jpg" alt="Certificate 16">
+      <div class="details">
+        <h3>Mini Bootcamp</h3>
+        <p>Belajar IoT: Buka Kesempatan Karir Lebih Awal</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/17.png" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="300">
+      <img src="asset/sertifikat/17.png" alt="Certificate 17">
+      <div class="details">
+        <h3>Webinar</h3>
+        <p>Optimalisasi Restitusi PPh dan PPN</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/18.png" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="400">
+      <img src="asset/sertifikat/18.png" alt="Certificate 18">
+      <div class="details">
+        <h3>Online Campaign</h3>
+        <p>Self Forgiveness</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/19.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="200">
+      <img src="asset/sertifikat/19.png" alt="Certificate 19">
+      <div class="details">
+        <h3>PMD TALK</h3>
+        <p>Kampus Merdeka "Kupas Tuntas MSIB"</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/20.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="300">
+      <img src="asset/sertifikat/20.png" alt="Certificate 20">
+      <div class="details">
+        <h3>Webinar</h3>
+        <p>Self Forgiveness</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/21.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="400">
+      <img src="asset/sertifikat/21.jpg" alt="Certificate 21">
+      <div class="details">
+        <h3>Mini Bootcamp</h3>
+        <p>belajar Dasar Back-End Engineering dengan Java Script On</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/22.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="200">
+      <img src="asset/sertifikat/22.jpg" alt="Certificate 22">
+      <div class="details">
+        <h3>Webinar</h3>
+        <p>Dasar-Dasar Pengujian Perangkat Lunak</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/23.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="300">
+      <img src="asset/sertifikat/23.jpg" alt="Certificate 23">
+      <div class="details">
+        <h3>Webinar</h3>
+        <p>Upgrade Your CV For Beginners</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
-    <div class="column">
-      <img src="asset/sertifikat/24.jpg" alt="" width="100%">
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="400">
+      <img src="asset/sertifikat/24.jpg" alt="Certificate 24">
+      <div class="details">
+        <h3>Dicoding Event</h3>
+        <p>starting the basics of a Cloud Engineer</p>
+        <span class="badge">Completed</span>
+      </div>
+    </div>
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="200">
+      <img src="asset/sertifikat/25.jpg" alt="Certificate 25">
+      <div class="details">
+        <h3>Dicoding Event</h3>
+        <p>DevCoach 150 : ML Adnroid | ML Kit: Langkah Cepat & Praktis Terapkan ML di Aplikasi Android</p>
+          <span class="badge">Completed</span>
+      </div>
+    </div>
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="300">
+      <img src="asset/sertifikat/26.jpg" alt="Certificate 26">
+      <div class="details">
+        <h3>Webinar</h3>
+        <p>Unlocking Job Opportunities: Crafting an UI/UX Portofolio That Demands Attention</p>
+        <span class="badge">Completed</span>
+      </div>
+    </div>
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="400">
+      <img src="asset/sertifikat/27.jpg" alt="Certificate 27">
+      <div class="details">
+        <h3>Dicoding Event</h3>
+        <p>Android Career Kickstart: Actionable Advice for New Graduates to Land Developer Roles Rapidly</p>
+        <span class="badge">Completed</span>
+      </div>
+    </div>
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="200">
+      <img src="asset/sertifikat/28.jpg" alt="Certificate 28">
+      <div class="details">
+        <h3>Webinar</h3>
+        <p>A Journey to a Successful Design Freelace Career</p>
+        <span class="badge">Completed</span>
+      </div>
+    </div>
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="300">
+      <img src="asset/sertifikat/29.jpg" alt="Certificate 29">
+      <div class="details">
+        <h3>Dicoding Event</h3>
+        <p>IDCamp x Dicoding Live - Building Performance Web Applications</p>
+        <span class="badge">Completed</span>
+      </div>
+    </div>
+    <div class="certificate-card" data-aos="flip-right" data-aos-duration="1000" data-aos-delay="400">
+      <img src="asset/sertifikat/30.jpg" alt="Certificate 30">
+      <div class="details">
+        <h3>Webinar</h3>
+        <p>Bootstrap: Grow Your Program With Bootstrap</p>
+        <span class="badge">Completed</span>
+      </div>
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="script.js"></script>
+  <script>
+    function getCurrentYear() {
+      return new Date().getFullYear();
+    }
+    document.getElementById('year').innerHTML = getCurrentYear();
+  </script>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
+
 </html>
